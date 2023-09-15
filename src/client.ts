@@ -21,6 +21,14 @@ class Client {
   ): Promise<T> {
     return this.request<T>({ ...cfg, url, method: 'get' })
   }
+
+  patch<T = void>(
+    url: string,
+    data?: unknown,
+    cfg?: Omit<AxiosRequestConfig, 'url' | 'method' | 'data'>,
+  ): Promise<T> {
+    return this.request<T>({ ...cfg, url, method: 'patch', data })
+  }
 }
 
 export const client = new Client()
