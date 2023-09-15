@@ -1,0 +1,31 @@
+{
+  "name": "@shoppyshop/wildberries-sdk",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ShoppyShop/wildberries-sdk#readme",
+  "author": "Vova Revenko <vova@revenko.org>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "lint": "eslint --ext .js,.ts .",
+    "fix": "npm run lint -- --fix"
+  },
+  "dependencies": {
+    "axios": "^1.5.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.1",
+    "typescript": "^5.2.2"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "repository": "github:ShoppyShop/wildberries-sdk"
+}
