@@ -53,3 +53,7 @@ export interface GetFeedbacksResponse {
   errorText: string
   additionalErrors: string[] | null
 }
+
+export type UpdateFeedbackData =
+  | { id: string; text: string; wasViewed?: never }
+  | { id: string; text?: never; wasViewed: boolean }
