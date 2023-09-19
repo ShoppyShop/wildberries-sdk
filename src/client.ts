@@ -29,6 +29,13 @@ class Client {
     return this.request<T>({ ...cfg, url, method: 'delete' })
   }
 
+  head<T = void>(
+    url: string,
+    cfg?: Omit<AxiosRequestConfig, 'url' | 'method'>,
+  ): Promise<T> {
+    return this.request<T>({ ...cfg, url, method: 'head' })
+  }
+
   post<T = void>(
     url: string,
     data?: unknown,
