@@ -36,6 +36,13 @@ class Client {
     return this.request<T>({ ...cfg, url, method: 'head' })
   }
 
+  options<T = void>(
+    url: string,
+    cfg?: Omit<AxiosRequestConfig, 'url' | 'method'>,
+  ): Promise<T> {
+    return this.request<T>({ ...cfg, url, method: 'options' })
+  }
+
   post<T = void>(
     url: string,
     data?: unknown,
