@@ -1,11 +1,10 @@
 import { client } from '../../client'
+import { FEEDBACKS_URL as URL } from '../urls'
 import {
   GetFeedbacksParams,
   GetFeedbacksResponse,
   UpdateFeedbackData,
 } from './types/feedbacks'
-
-const URL = 'https://feedbacks-api.wb.ru/api/v1/feedbacks'
 
 export const getFeedbacks = (params: GetFeedbacksParams) =>
   client.get<GetFeedbacksResponse>(URL, { params })
