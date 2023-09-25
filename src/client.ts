@@ -1,5 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
 
+type Config = Omit<AxiosRequestConfig, 'url' | 'method' | 'data'>
+
 class Client {
   private axios: AxiosInstance
 
@@ -15,55 +17,31 @@ class Client {
     return (await this.axios.request<T>(cfg)).data
   }
 
-  get<T>(
-    url: string,
-    cfg?: Omit<AxiosRequestConfig, 'url' | 'method'>,
-  ): Promise<T> {
+  get<T>(url: string, cfg?: Config): Promise<T> {
     return this.request<T>({ ...cfg, url, method: 'get' })
   }
 
-  delete<T = void>(
-    url: string,
-    cfg?: Omit<AxiosRequestConfig, 'url' | 'method'>,
-  ): Promise<T> {
+  delete<T = void>(url: string, cfg?: Config): Promise<T> {
     return this.request<T>({ ...cfg, url, method: 'delete' })
   }
 
-  head<T = void>(
-    url: string,
-    cfg?: Omit<AxiosRequestConfig, 'url' | 'method'>,
-  ): Promise<T> {
+  head<T = void>(url: string, cfg?: Config): Promise<T> {
     return this.request<T>({ ...cfg, url, method: 'head' })
   }
 
-  options<T = void>(
-    url: string,
-    cfg?: Omit<AxiosRequestConfig, 'url' | 'method'>,
-  ): Promise<T> {
+  options<T = void>(url: string, cfg?: Config): Promise<T> {
     return this.request<T>({ ...cfg, url, method: 'options' })
   }
 
-  post<T = void>(
-    url: string,
-    data?: unknown,
-    cfg?: Omit<AxiosRequestConfig, 'url' | 'method' | 'data'>,
-  ): Promise<T> {
+  post<T = void>(url: string, data?: unknown, cfg?: Config): Promise<T> {
     return this.request<T>({ ...cfg, url, method: 'post', data })
   }
 
-  put<T = void>(
-    url: string,
-    data?: unknown,
-    cfg?: Omit<AxiosRequestConfig, 'url' | 'method' | 'data'>,
-  ): Promise<T> {
+  put<T = void>(url: string, data?: unknown, cfg?: Config): Promise<T> {
     return this.request<T>({ ...cfg, url, method: 'put', data })
   }
 
-  patch<T = void>(
-    url: string,
-    data?: unknown,
-    cfg?: Omit<AxiosRequestConfig, 'url' | 'method' | 'data'>,
-  ): Promise<T> {
+  patch<T = void>(url: string, data?: unknown, cfg?: Config): Promise<T> {
     return this.request<T>({ ...cfg, url, method: 'patch', data })
   }
 }
